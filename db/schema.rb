@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_044103) do
+ActiveRecord::Schema.define(version: 2021_02_22_071427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_044103) do
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
     t.integer "status", default: 0
-    t.integer "role"
+    t.integer "spoon", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_bookings_on_event_id"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 2021_02_22_044103) do
     t.datetime "time"
     t.integer "max_guest"
     t.bigint "user_id", null: false
+    t.integer "host_spoon", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
