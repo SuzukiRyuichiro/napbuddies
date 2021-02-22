@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'events/new'
-  get 'events/create'
-  get 'events/index'
-  get 'events/show'
   devise_for :users
   root to: 'pages#home'
 
