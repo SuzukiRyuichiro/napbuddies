@@ -7,4 +7,6 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :max_guest, presence: true
   validates :description, presence: true
+  
+  enum host_spoon: { no_pref: 0, little: 1, mid: 2, big: 3 }
 end
