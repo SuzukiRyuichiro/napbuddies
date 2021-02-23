@@ -6,7 +6,9 @@
 <div class="container">
   <% @events.each do |event| %>
     <div class="card-trip py-4 my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% if event.photo.attached? %>
+        <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= event.title %></h2>
