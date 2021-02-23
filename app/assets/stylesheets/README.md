@@ -100,6 +100,7 @@ Look at your main `application.scss` file to see how SCSS files are imported. Th
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "compnents/banner";
 ```
 
 For every folder (**`components`**, **`pages`**), there is one `_index.scss` partial which is responsible for importing all the other partials of its folder.

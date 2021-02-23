@@ -3,6 +3,10 @@ class EventPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def index?
+      true
+    end
   end
 
   def create?
