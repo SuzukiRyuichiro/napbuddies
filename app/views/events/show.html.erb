@@ -6,3 +6,8 @@
 <h3>Host: </h3><%= @user.username %>
 <p> <%= @user.email %> </p>
 
+<%if @event.host_spoon == 1 %>
+<h3>Role</h3> Change this <p>
+<% end %>
+
+
