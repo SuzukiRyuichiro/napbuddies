@@ -7,6 +7,4 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :max_guest, presence: true
   validates :description, presence: true
-
-
 end

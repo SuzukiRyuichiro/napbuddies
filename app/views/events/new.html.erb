@@ -1,2 +1,9 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<%= simple_form_for @event do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :time %>
+    <%= f.input :max_guest %>
+    <%= f.input :host_spoon %>
+    <%= f.submit %>
+<% end %>
