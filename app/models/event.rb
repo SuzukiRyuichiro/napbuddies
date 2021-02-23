@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :location, presence: true
   validates :time, presence: true
-  validates :max_guest, presence: true, default: 1
+  validates :max_guest, presence: true
   validates :description, presence: true
 
 
