@@ -1,2 +1,11 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="container">
+<h1>Welcome to Napbuddies!</h1>
+
+<div> 
+  <% @events.each do |event| %>
+    <h2><%= event.title %></h2>
+    <p>Find me in app/views/pages/home.html.erb</p>
+  <% end %>
+</div>
+
+</div>
