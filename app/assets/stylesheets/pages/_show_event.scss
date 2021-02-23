@@ -1,0 +1,47 @@
+.min-height-90vh {
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+
+}
+.img-card {
+  border: 1em solid white;
+  box-shadow: 7px 6px 10px 0px rgba(0,0,0,0.40);
+}
+.card-index-sm {
+  width: 22rem;
+  margin: 31px;
+  box-shadow: 7px 6px 10px 0px rgba(0,0,0,0.40);
+  border: 13px solid white;
+  position: relative;
+  p {
+    font-size: 0.9em;
+  }
+
+}
+.img-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+.avatar-card {
+    position: absolute;
+    position: absolute;
+    bottom: 0.2em;
+    left: 13.5em;
+  }
+  .card-description {
+    width: 60%;
+    box-shadow: 7px 6px 10px 0px rgba(0,0,0,0.40);
+  }
+  .title-show {
+    display: inline-block;
+    padding: 1em;
+    text-shadow: 1px 0px black;
+  }
+  .card-description-text {
+    padding: 4em;
+  }
