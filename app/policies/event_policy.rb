@@ -3,8 +3,6 @@ class EventPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-
   end
   def show?
     true
