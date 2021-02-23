@@ -11,7 +11,7 @@
       <% end %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= event.title %></h2>
+            <%= link_to event.title, event_path(event) %>
             <p><%= event.description %></p>
           </div>
         <h2 class="card-trip-pricing">£99.99</h2>
