@@ -1,12 +1,16 @@
 <div class="form-card">
   <%= simple_form_for @event do |f| %>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, hint: "Describe where you are going to take a nap, what kind of buddy you're looking for, what kind of expectations you have, etc" %>
       <%= f.input :location %>
       <%= f.input :time %>
-      <%= f.input :max_guest %>
-      <%= f.input :host_spoon, as: :radio_buttons, collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']]%>
-      <%= f.input :photo, as: :file %>      
+      <%= f.input :max_guest, label: 'Maximum number of guests', collection: (1..10) %>
+      <%= f.input :host_spoon,
+                  label: "You're preferred position",
+                  as: :radio_buttons,
+                  collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']],
+                  hint: "Imagine literal spoons!" %>
+      <%= f.input :photo, as: :file, hint: "Upload photos of the place you're hosting the nap!" %>
       <div class="submit-button-wrap">
         <%= f.submit %>
       </div>
