@@ -1,13 +1,10 @@
-<h1><%= @event.title %></h1>
-<h3>Location: </h3> <%= @event.location %>
-<h3>Time: </h3><%= @event.time %>
-<h3>Max guests: </h3><%= @event.max_guest %>
-<h3>Description: </h3><%= @event.description %>
-<h3>Host: </h3><%= @user.username %>
-<p> <%= @user.email %> </p>
-
-<%if @event.host_spoon == 1 %>
-  <h3>Role</h3> Change this <p>
-<% end %>
-
-
+<div class="container">
+  <h1><%= @event.title %></h1>
+  <h3>Location: </h3> <%= @event.location %>
+  <h3>Time: </h3><%= @event.time %>
+  <h3>Max guests: </h3><%= @event.max_guest %>
+  <h3>Description: </h3><%= @event.description %>
+  <h3>Host: </h3><%= @user.username %>
+  <p> <%= @user.email %> </p>
+  <%= @event.host_spoon %>
+</div>
