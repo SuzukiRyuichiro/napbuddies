@@ -1,11 +1,20 @@
-<div class="container">
-  <h1>Welcome to Napbuddies!</h1>
-
-<div> 
-  <% @events.each do |event| %>
-    <h2><%= event.title %></h2>
-    <p><%= event.description %></p>
-  <% end %>
+<div class="banner my-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Welcome to <strong>Napbuddies</strong>!</h1>
+  </div>
 </div>
-
+<div class="container">
+  <% @events.each do |event| %>
+    <div class="card-trip py-5">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= event.title %></h2>
+            <p><%= event.description %></p>
+          </div>
+        <h2 class="card-trip-pricing">£99.99</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
 </div>
