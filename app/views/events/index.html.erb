@@ -7,7 +7,7 @@
   <% @events.each do |event| %>
     <div class="card card-index-sm" style="width: 18rem;">
       <%= link_to " ", event_path(event), class: 'img-link' %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+       <%= cl_image_tag event.photo.key, width: "100%" %>
       <div class="card-body">
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <img class="avatar-card avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
