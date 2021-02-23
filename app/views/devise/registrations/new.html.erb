@@ -14,6 +14,7 @@
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :username, label: 'Username' %>
+      <%= f.input :photo, label: 'Profile Photo', as: :file %>
     </div>
 
     <div class="form-actions submit-button-wrap">
