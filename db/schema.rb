@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_085355) do
+ActiveRecord::Schema.define(version: 2021_02_22_071427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_085355) do
     t.string "title"
     t.string "location"
     t.datetime "time"
-    t.integer "max_guest", default: 1
+    t.integer "max_guest"
     t.bigint "user_id", null: false
     t.integer "host_spoon", default: 0
     t.datetime "created_at", precision: 6, null: false
