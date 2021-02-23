@@ -1,5 +1,11 @@
 <div class="container">
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Napbuddies!</h1>
+
+<div> 
+  <% @events.each do |event| %>
+  <h2><%= event.title %></h2>
+  <p>Find me in app/views/pages/home.html.erb</p>
+  <% end %>
+</div>
 
 </div>
