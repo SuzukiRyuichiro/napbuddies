@@ -1,9 +1,13 @@
-<%= simple_form_for @event do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <%= f.input :time %>
-    <%= f.input :max_guest %>
-    <%= f.input :host_spoon %>
-    <%= f.submit %>
-<% end %>
+<div class="form-card">
+  <%= simple_form_for @event do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :location %>
+      <%= f.input :time %>
+      <%= f.input :max_guest %>
+      <%= f.input :host_spoon, as: :radio_buttons, collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']]%>
+      <div class="submit-button-wrap">
+        <%= f.submit %>
+      </div>
+  <% end %>
+</div>
