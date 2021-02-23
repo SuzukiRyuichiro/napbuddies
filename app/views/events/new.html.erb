@@ -6,6 +6,7 @@
       <%= f.input :time %>
       <%= f.input :max_guest %>
       <%= f.input :host_spoon, as: :radio_buttons, collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']]%>
+      <%= f.input :photo, as: :file %>      
       <div class="submit-button-wrap">
         <%= f.submit %>
       </div>

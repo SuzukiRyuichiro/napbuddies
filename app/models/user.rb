@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :events, through: :bookings
   has_many :events_as_host, class_name: 'Event'
+  has_one_attached :photo
 
 
   # Include default devise modules. Others available are:
