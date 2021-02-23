@@ -5,7 +5,6 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
-
   def create?
     true
   end
