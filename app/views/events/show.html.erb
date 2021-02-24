@@ -3,10 +3,11 @@
   <div class="container min-height-90vh">
     <div class="img-flex-show">
       <div class="img-show-card">
-        <%# if @event.photo.attached? %>
-        <img src="https://source.unsplash.com/1100x300/?sleep,nap" alt="">
-        <%#= cl_image_tag @event.photo.key, height: 300, width: 1100, crop: :fill, class: "img-card" %>
-        <%# end %>
+        <% if @event.photo.attached? %>
+        <%= cl_image_tag @event.photo.key, height: 300, width: 1100, crop: :fill, class: "img-card" %>
+        <% else %>
+        <img src="https://source.unsplash.com/1100x300/?sleep,nap" alt="event picture">
+        <% end %>
       </div>
     </div>
     <div class="card card-description">
@@ -18,9 +19,10 @@
         <h3>Max guests: </h3><p><%= @event.max_guest %></p>
         <h3>Host: </h3><p><%= @user.username&.capitalize %></p>
         <h3>Contact:</h3><p> <%= @user.email %> </p>
-        <h3>Spoon:</h3><p> <%= @event.host_spoon %> </p>
+        <h3>Preferred Position of the host:</h3><p> <%= @event.host_spoon %> </p>
         <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
       </div>
     </div>
   </div>
+</div>
 </div>
