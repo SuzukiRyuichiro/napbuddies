@@ -1,20 +1,25 @@
 <div class="d-flex flex-column align-items-center">
-  <h1 class="title-show"><%= @event.title %></h1>
+
   <div class="container min-height-90vh">
-    <div>
-      <%# if @event.photo.attached? %>
-      <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill, class: "img-card" %>
-      <%# end %>
+    <div class="img-flex-show">
+      <div class="img-show-card">
+        <%# if @event.photo.attached? %>
+        <img src="https://source.unsplash.com/1100x300/?sleep,nap" alt="">
+        <%#= cl_image_tag @event.photo.key, height: 300, width: 1100, crop: :fill, class: "img-card" %>
+        <%# end %>
+      </div>
     </div>
     <div class="card card-description">
-      <div class="card-body card-description-text">
-        <h3>Location: </h3> <%= @event.location %>
-        <h3>Time: </h3><%= @event.time %>
-        <h3>Max guests: </h3><%= @event.max_guest %>
-        <h3>Description: </h3><%= @event.description %>
-        <h3>Host: </h3><%= @user.username %>
-        <p> <%= @user.email %> </p>
-        <p> <%= @event.host_spoon %> </p>
+      <div class="card-body card-description-text-show">
+        <h1 class="title-show"><%= @event.title %></h1>
+        <h3>Description: </h3><p><%= @event.description %></p>
+        <h3>Location: </h3> <p><%= @event.location %></p>
+        <h3>Time: </h3><%= @event.time %></p>
+        <h3>Max guests: </h3><p><%= @event.max_guest %></p>
+        <h3>Host: </h3><p><%= @user.username.capitalize %></p>
+        <h3>Contact:</h3><p> <%= @user.email %> </p>
+        <h3>Spoon:</h3><p> <%= @event.host_spoon %> </p>
+        <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
       </div>
     </div>
   </div>
