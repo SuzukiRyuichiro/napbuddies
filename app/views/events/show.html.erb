@@ -1,28 +1,28 @@
-<div class="d-flex flex-column align-items-center">
+<%# <div class="d-flex flex-column align-items-center"> %>
 
   <div class="container min-height-90vh">
-    <div class="img-flex-show">
-      <div class="img-show-card">
+    <%# <div class="img-flex-show"> %>
+      <div class="card-description card-description-img">
         <% if @event.photo.attached? %>
-        <%= cl_image_tag @event.photo.key, height: 300, width: 1100, crop: :fill, class: "img-card" %>
+        <%= cl_image_tag @event.photo.key, class: "img-card" %>
         <% else %>
-        <img src="https://source.unsplash.com/1100x300/?sleep,nap" alt="event picture">
+        <img src="https://source.unsplash.com/1100x300/?sleep,nap", class="img-card" alt="event picture">
         <% end %>
-      </div>
-    </div>
+       </div>
+    <%# </div> %>
     <div class="card card-description">
+    <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
       <div class="card-body card-description-text-show">
         <h1 class="title-show"><%= @event.title %></h1>
-        <h3>Description: </h3><p><%= @event.description %></p>
-        <h3>Location: </h3> <p><%= @event.location %></p>
-        <h3>Time: </h3><%= @event.time %></p>
-        <h3>Max guests: </h3><p><%= @event.max_guest %></p>
-        <h3>Host: </h3><p><%= @user.username&.capitalize %></p>
-        <h3>Contact:</h3><p> <%= @user.email %> </p>
-        <h3>Preferred Position of the host:</h3><p> <%= @event.host_spoon %> </p>
-        <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+        <p><span class="h5 font-weight-bold">Description: </span class="h5"></p><p><%= @event.description %></p>
+        <p><span class="h5 font-weight-bold">Location: </span class="h5"></p><p> <%= @event.location %></p>
+        <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time %></p>
+        <p><span class="h5 font-weight-bold">Max guests: </span class="h5"><%= @event.max_guest %></p>
+        <p><span class="h5 font-weight-bold">Host: </span class="h5"><%= @user.username&.capitalize %></p>
+        <p><span class="h5 font-weight-bold">Contact:</span class="h5"> <%= @user.email %> </p>
+        <p><span class="h5 font-weight-bold">Preferred Position of the host: </span class="h5"><%= @event.host_spoon %> </p>
       </div>
     </div>
   </div>
 </div>
-</div>
+<%# </div> %>
