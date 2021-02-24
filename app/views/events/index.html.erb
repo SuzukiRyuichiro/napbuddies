@@ -9,33 +9,35 @@
       <div class="cards-index-columns">
         <% @events.each do |event| %>
         <% if event.photo.attached? %>
-        <div class="card card-index-sm" style="">
-          <%= link_to " ", event_path(event), class: 'img-link' %>
-          <%= cl_image_tag event.photo.key, width: "100%" %>
-          <div class="card-body position-relative p-0">
-            <h3><%= event.title %></h3>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <img class="avatar-card avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <div class="card card-index-sm" style="">
+            <%= link_to " ", event_path(event), class: 'img-link' %>
+            <%= cl_image_tag event.photo.key, width: "100%" %>
+            <div class="card-body position-relative p-0">
+              <h3><%= event.title %></h3>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <img class="avatar-card avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
           </div>
-        </div>
-        <% else %>
-        <div class="card card-index-sm" style="">
-          <%= link_to " ", event_path(event), class: 'img-link' %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <div class="card-body position-relative p-0">
-            <h3><%= event.title %></h3>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <img class="avatar-card avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <% else %>
+          <div class="card card-index-sm" style="">
+            <%= link_to " ", event_path(event), class: 'img-link' %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <div class="card-body position-relative p-0">
+              <h3><%= event.title %></h3>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <img class="avatar-card avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
           </div>
         </div>
         <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="col-6">
-      <div class="map-index">
-        <h1>this is the map</h1>
+      </div>
+      <div class="col-6">
+        <div id="map"
+          style="width: 110%; height: 100vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
-  </div>
 </div>

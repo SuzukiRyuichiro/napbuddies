@@ -45,3 +45,6 @@ Event.all.each do |event|
     end
   end
 end
+
+Event.create!(title: 'tokyo party', location: 'Tokyo Tower', time: '1200', max_guest: 2, description: 'Nap time')
+puts 'tokyo tower made'
