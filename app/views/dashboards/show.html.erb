@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Events You Are Hosting</h1>
+  <table class="table table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Location</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events_as_host.each_with_index do |event, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <th><%= event.title %></th>
+        <th><%= event.location %></th>
+        <th><%= event.time %></th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h1>Events You Booked</h1>
+  <table class="table table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Location</th>
+        <th scope="col">Time</th>
+        <th scope="col">Booking Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each_with_index do |booking, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <th><%= booking.event.title %></th>
+        <th><%= booking.event.location %></th>
+        <th><%= booking.event.time %></th>
+        <th><%= booking.status %></th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

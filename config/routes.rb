@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'booking/create'
   devise_for :users
   root to: 'events#index'
   get '/events/new', to: 'events#new', as: 'new_event'
@@ -8,4 +7,5 @@ Rails.application.routes.draw do
   post '/events', to: 'events#create'
   get '/events/:id/bookings/new', to: 'bookings#new', as: 'new_event_bookings'
   post '/events/:id/bookings', to: 'bookings#create', as: 'event_bookings'
+  get '/dashboard', to: 'dashboards#show', as: 'dashboard'
 end
