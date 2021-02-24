@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/events/:id', to: 'events#show', as: 'event'
   get '/events', to: 'events#index', as: 'events'
   post '/events', to: 'events#create'
-  get '/events/:id/bookings/new', to: 'bookings#new', as: 'event_bookings'
-  post '/events/:id/bookings', to: 'bookings#create', as: 'create_event_bookings'
+  get '/events/:id/bookings/new', to: 'bookings#new', as: 'new_event_bookings'
+  post '/events/:id/bookings', to: 'bookings#create', as: 'event_bookings'
 end

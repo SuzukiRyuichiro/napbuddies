@@ -1,4 +1,6 @@
-<%= simple_form_for [@event, @booking] do |f| %>
-    <%= f.input :spoon %>
+<%= simple_form_for([@event, @booking], url: event_bookings_path(@event)) do |f| %>
+    <%= f.input :spoon,
+                as: :radio_buttons,
+                collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']] %>
     <%= f.submit %>
 <% end %>
