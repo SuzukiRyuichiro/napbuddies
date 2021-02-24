@@ -14,6 +14,8 @@
 }
 .img-show-card {
   margin-bottom: 30px;
+  padding-top: 30px;
+
 }
 .card-description {
   width: 96%;
@@ -28,7 +30,7 @@
 }
 .title-show {
   display: inline-block;
-  padding: 1em;
+  margin-bottom: 1em;
   text-shadow: 1px 0px black;
 }
 .img-flex-show {
@@ -37,4 +39,7 @@
 .img-flex-show-sm {
   display: flex;
   flex-direction: column;
+}
+.card-description-text-show {
+  padding: 3em;
 }

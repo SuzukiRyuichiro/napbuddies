@@ -1,5 +1,5 @@
 <div class="d-flex flex-column align-items-center">
-  <h1 class="title-show"><%= @event.title %></h1>
+
   <div class="container min-height-90vh">
     <div class="img-flex-show">
       <div class="img-show-card">
@@ -10,7 +10,8 @@
       </div>
     </div>
     <div class="card card-description">
-      <div class="card-body card-description-text">
+      <div class="card-body card-description-text-show">
+        <h1 class="title-show"><%= @event.title %></h1>
         <h3>Description: </h3><p><%= @event.description %></p>
         <h3>Location: </h3> <p><%= @event.location %></p>
         <h3>Time: </h3><%= @event.time %></p>
