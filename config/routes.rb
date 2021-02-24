@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'booking/create'
   devise_for :users
   root to: 'events#index'
   get '/events/new', to: 'events#new', as: 'new_event'
