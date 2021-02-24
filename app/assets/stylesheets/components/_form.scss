@@ -1,18 +1,19 @@
 .form-card {
-  min-height: 70vh;
-  width: 60%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
   box-shadow: 2px 2px 20px #3f3f3f40;
   border-radius: 5px;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 50px;
   .submit-button-wrap {
     display: flex;
     justify-content: center;
   }
   h2 {
     text-align: center;
+  }
+  .radio-label {
+    color: $gray;
   }
 }
