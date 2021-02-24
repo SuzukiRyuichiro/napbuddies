@@ -15,12 +15,13 @@
         <h1 class="title-show"><%= @event.title %></h1>
         <h3>Description: </h3><p><%= @event.description %></p>
         <h3>Location: </h3> <p><%= @event.location %></p>
-      <h3>Time: </h3><%= @event.time %></p>
-      <h3>Max guests: </h3><p><%= @event.max_guest %></p>
-      <h3>Host: </h3><p><%= @user.username.capitalize %></p>
-      <h3>Contact:</h3><p><%= @user.email %></p>
-      <h3>Preferred Position of the host:</h3><p><%= @event.host_spoon %></p>
-      <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+        <h3>Time: </h3><%= @event.time %></p>
+        <h3>Max guests: </h3><p><%= @event.max_guest %></p>
+        <h3>Host: </h3><p><%= @user.username&.capitalize %></p>
+        <h3>Contact:</h3><p> <%= @user.email %> </p>
+        <h3>Preferred Position of the host:</h3><p> <%= @event.host_spoon %> </p>
+        <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+      </div>
     </div>
   </div>
 </div>

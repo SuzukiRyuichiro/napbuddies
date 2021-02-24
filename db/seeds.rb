@@ -19,7 +19,7 @@ puts "created #{User.count} users!"
   puts "creating a event"
   event = Event.new(
     title: Faker::Book.title,
-    location: Faker::Address.full_address,
+    location: Faker::Address.state,
     time: rand(5.days).seconds.from_now,
     user: User.all.sample,
     max_guest: rand(2..3),
@@ -45,6 +45,3 @@ Event.all.each do |event|
     end
   end
 end
-
-Event.create!(title: 'tokyo party', location: 'Tokyo Tower', time: '1200', max_guest: 2, description: 'Nap time')
-puts 'tokyo tower made'
