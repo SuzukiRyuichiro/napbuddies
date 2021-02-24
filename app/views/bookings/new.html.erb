@@ -1,0 +1,13 @@
+<div class="form-card">
+  <h2>Book for the nappy</h2>
+  <%= simple_form_for([@event, @booking], url: event_bookings_path(@event)) do |f| %>
+  <%= f.input :spoon,
+  as: :radio_buttons,
+  collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']],
+  label: 'Preferred position',
+  class: "radio-label" %>
+  <div class="submit-button-wrap">
+    <%= f.submit class: "btn btn-light" %>
+  </div>
+  <% end %>
+</div>
