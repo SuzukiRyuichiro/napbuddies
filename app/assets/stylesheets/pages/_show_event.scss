@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 3em;
+  min-height: 80vh;
 }
 .img-card {
   height: 100%;
@@ -17,17 +18,13 @@
   padding-top: 30px;
 
 }
+.card-description-left {
+  padding: 1.5em;
+}
 .card-description {
   height: 100%;
   width: 100%;
   box-shadow: 7px 6px 10px 0px rgba(0,0,0,0.40);
-  // h3 {
-  //   font-size: 1.3em;
-  //   font-weight: bold;
-  // }
-  // p {
-  //   font-size: 0.9em;
-  // }
   h1 {
     font-size: 1.7rem;
   }
