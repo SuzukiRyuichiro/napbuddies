@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 20.times do
-  user = User.new(username: Faker::Twitter.screen_name, email:Faker::Internet.email, password: Faker::Creature::Animal.name)
+  user = User.new(username: Faker::Twitter.screen_name, email:Faker::Internet.email, password: Faker::Creature::Animal.name,
+bio:Faker::TvShows::BojackHorseman.quote, first_name:Faker::Movies::LordOfTheRings.character, last_name:Faker::Creature::Animal.name)
   user.save || next
 end
 
