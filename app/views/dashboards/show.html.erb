@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <% @events_as_host.each_with_index do |event, index| %>
-        <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+        <tr class="accordion-toggle collapsed" id="accordion<%= index %>" data-toggle="collapse" data-parent="#accordion<%= index %>" href="#collapse<%= index %>">
           <td class="expand-button"></td>
           <td scope="row"><%= index + 1 %></td>
           <td><%= event.title %></td>
@@ -25,14 +25,14 @@
         <tr class="hide-table-padding">
           <td></td>
           <td colspan="6">
-            <div id="collapseOne" class="collapse in p-2 border-bottom">
+            <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
               <div class="row">
                 <div class="col-2">Username</div>
                 <div class="col-6">Preferred Position</div>
               </div>
             </div>
             <% event.bookings.each do |booking| %>
-            <div id="collapseOne" class="collapse in p-2 border-bottom">
+            <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
               <div class="row">
                 <%= link_to "#", class: "col-2" do %>
                 <div class="col-2"><%= booking.user.username %></div>
