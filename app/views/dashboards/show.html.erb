@@ -1,46 +1,88 @@
 <div class="container">
   <h1>Events You Are Hosting</h1>
-  <table class="table table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Location</th>
-        <th scope="col">Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events_as_host.each_with_index do |event, index| %>
-      <tr>
-        <th scope="row"><%= index + 1 %></th>
-        <th><%= event.title %></th>
-        <th><%= event.location %></th>
-        <th><%= event.time %></th>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <h1>Events You Booked</h1>
-  <table class="table table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Location</th>
-        <th scope="col">Time</th>
-        <th scope="col">Booking Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each_with_index do |booking, index| %>
-      <tr>
-        <th scope="row"><%= index + 1 %></th>
-        <th><%= booking.event.title %></th>
-        <th><%= booking.event.location %></th>
-        <th><%= booking.event.time %></th>
-        <th><%= booking.status %></th>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Location</th>
+          <th scope="col">Time</th>
+          <th scope="col">Number of requests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events_as_host.each_with_index do |event, index| %>
+        <tr class="accordion-toggle collapsed" id="accordion<%= index %>" data-toggle="collapse" data-parent="#accordion<%= index %>" href="#collapse<%= index %>">
+          <td class="expand-button"></td>
+          <td scope="row"><%= index + 1 %></td>
+          <td><%= event.title %></td>
+          <td><%= event.location %></td>
+          <td><%= event.time %></td>
+          <td><%= event.bookings.count %></td>
+        </tr>
+        <tr class="hide-table-padding">
+          <td></td>
+          <td colspan="6">
+            <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
+              <div class="row">
+                <div class="col-2">Username</div>
+                <div class="col-6">Preferred Position</div>
+              </div>
+            </div>
+            <% event.bookings.each do |booking| %>
+            <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
+              <div class="row">
+                <%= link_to "#", class: "col-2" do %>
+                <div class="col-2"><%= booking.user.username %></div>
+                <% end %>
+                <div class="col-6"><%= booking.spoon %></div>
+                <% if booking.status == "pending" %>
+                <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
+                <%= f.submit 'Accept', class: 'btn btn-primary mr-3' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+                <%= f.submit 'Decline', class: 'btn btn-danger' %>
+                <% end %>
+                <% elsif booking.status == "declined" %>
+                <p class="p-2">Declined</p>
+                <% else %>
+                <p class="p-2">Approved</p>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <h1>Events You Booked</h1>
+    <table class="table table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Location</th>
+          <th scope="col">Time</th>
+          <th scope="col">Booking Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bookings.each_with_index do |booking, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <th><%= booking.event.title %></th>
+          <th><%= booking.event.location %></th>
+          <th><%= booking.event.time %></th>
+          <th><%= booking.status %></th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
 </div>

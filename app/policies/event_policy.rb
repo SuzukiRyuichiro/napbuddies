@@ -12,6 +12,7 @@ class EventPolicy < ApplicationPolicy
   def create?
     true
   end
+
   def show?
     true
   end
