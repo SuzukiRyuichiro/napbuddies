@@ -1,6 +1,14 @@
 <div class="banner my-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://ketteringhealth.org/mediaroom/files/art-of-napping.png);">
   <div class="container">
     <h1>Welcome to <strong>Napbuddies</strong>!</h1>
+    <%= form_tag @events_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Preferred nap?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 <div class="container">
