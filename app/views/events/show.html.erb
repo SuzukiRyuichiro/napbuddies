@@ -16,7 +16,7 @@
         <h1 class="title-show"><%= @event.title %></h1>
         <p><span class="h5 font-weight-bold">Description: </span class="h5"></p><p><%= @event.description %></p>
         <p><span class="h5 font-weight-bold">Location: </span class="h5"></p><p> <%= @event.location %></p>
-        <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time %></p>
+        <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time.strftime("%A %Y/%m/%d %H:%M") %></p>
         <p><span class="h5 font-weight-bold">Max guests: </span class="h5"><%= @event.max_guest %></p>
         <p><span class="h5 font-weight-bold">Host: </span class="h5"><%= @user.username&.capitalize %></p>
         <p><span class="h5 font-weight-bold">Contact:</span class="h5"> <%= @user.email %> </p>
