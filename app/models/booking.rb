@@ -1,7 +1,7 @@
 class BookingValidator < ActiveModel::Validator
   def validate(record)
     if record.event.user == record.user
-      record.errors[:base] << "Host cannot book his or her own event"
+      record.errors[:user] << "Host cannot book his or her own event"
     end
   end
 end
