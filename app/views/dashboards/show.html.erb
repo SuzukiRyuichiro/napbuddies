@@ -25,34 +25,26 @@
         <tr class="hide-table-padding">
           <td></td>
           <td colspan="6">
-            <div id="collapseOne" class="collapse in p-2">
+            <div id="collapseOne" class="collapse in p-2 border-bottom">
               <div class="row">
                 <div class="col-2">Username</div>
                 <div class="col-6">Preferred Position</div>
               </div>
             </div>
             <% event.bookings.each do |booking| %>
-            <div id="collapseOne" class="collapse in p-2">
+            <div id="collapseOne" class="collapse in p-2 border-bottom">
               <div class="row">
                 <%= link_to "#", class: "col-2" do %>
                 <div class="col-2"><%= booking.user.username %></div>
                 <% end %>
                 <div class="col-6"><%= booking.spoon %></div>
                 <% if booking.status == "pending" %>
-                <%= link_to "#" do %>
-                <div class="col-2">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Action
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <% end %>
+                <%= link_to "Approve", "#", class: "btn btn-primary mr-3" %>
+                <%= link_to "Decline", "#", class: "btn btn-danger" %>
+                <% elsif booking.status == "declined" %>
+                <p class="btn btn-light">Declined</p>
+                <% else %>
+                <p class="btn btn-success">Approved</p>
                 <% end %>
               </div>
             </div>
