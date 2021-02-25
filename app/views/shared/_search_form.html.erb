@@ -1,8 +1,8 @@
-<%= form_tag @events_path, method: :get, class: 'form-inline' do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control w-#{width}",
-        placeholder: "Preferred nap?"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+<%= form_tag events_path, method: :get, class: 'form-inline' do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control w-#{width}",
+    placeholder: "Preferred nap?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

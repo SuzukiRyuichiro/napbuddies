@@ -6,24 +6,8 @@
       </div>
       <div class="cards-index-columns">
         <% @events.each do |event| %>
-          <div class="card card-index-sm" style="">
-            <%= link_to " ", event_path(event), class: 'img-link' %>
-            <% if event.photo.attached? %>
-              <%= cl_image_tag event.photo.key, class: "img" %>
-            <% else %>
-              <img class="img" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-            <% end %>
-            <div class="card-body position-relative p-0">
-              <h3><%= event.title %></h3>
-              <p class="card-text"><%= event.description.slice(0..50) %>...</p>
-              <% if event.user.photo.attached? %>
-                <%= cl_image_tag event.user.photo.key, class: 'avatar-card avatar' %>
-              <% else %>
-                <img class="avatar-card avatar" src="https://ketteringhealth.org/mediaroom/files/art-of-napping.png" class="card-trip-user avatar-bordered" />
-              <% end %>
-            </div>
-          </div>
-          <% end %>
+          <%= render 'events/card', event: event %>
+        <% end %>
       </div>
       </div>
       <div class="col-6">
