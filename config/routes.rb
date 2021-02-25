@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'events#index'
+  root to: 'pages#home'
   get '/events/new', to: 'events#new', as: 'new_event'
   get '/events/:id', to: 'events#show', as: 'event'
   get '/events', to: 'events#index', as: 'events'
@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post '/events/:id/bookings', to: 'bookings#create', as: 'event_bookings'
   get '/dashboard', to: 'dashboards#show', as: 'dashboard'
   get '/users/:id', to: 'users#show', as: 'profile'
+  patch '/bookings/:id', to: 'bookings#update', as: 'booking'
 end

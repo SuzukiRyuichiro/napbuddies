@@ -1,0 +1,10 @@
+<%= render 'pages/header' %>
+
+<div class="container">
+  <h3>RECENT EVENTS</h3>
+  <div class="cards-index-columns">
+    <% @events.each do |event| %>
+      <%= render 'events/card', event: event %>
+    <% end %>
+  </div>
+</div>
