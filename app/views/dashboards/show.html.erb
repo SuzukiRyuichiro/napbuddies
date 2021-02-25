@@ -1,5 +1,5 @@
 <div class="container">
-  <ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <ul class="nav tabs-underlined mt-2" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="home" aria-selected="true">Hosting Events</a>
     </li>
@@ -87,11 +87,13 @@
         <tbody>
           <% @bookings.each_with_index do |booking, index| %>
           <tr>
-            <th scope="row"><%= index + 1 %></th>
-            <th><%= booking.event.title %></th>
-            <th><%= booking.event.location %></th>
-            <th><%= booking.event.time %></th>
-            <th><%= booking.status %></th>
+            <td scope="row"><%= index + 1 %></td>
+            <!-- <#%= link_to new_event_path do %> -->
+            <td><%= booking.event.title %></td>
+            <!-- <#% end %> -->
+            <td><%= booking.event.location %></td>
+            <td><%= booking.event.time.strftime("%a %Y/%m/%d %H:%M") %></td>
+            <td><%= booking.status %></td>
           </tr>
           <% end %>
         </tbody>
