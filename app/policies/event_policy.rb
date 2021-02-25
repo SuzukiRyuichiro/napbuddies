@@ -16,4 +16,8 @@ class EventPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def book?
+    record.user != user
+  end
 end
