@@ -8,10 +8,12 @@
         <% else %>
         <img src="https://source.unsplash.com/1100x300/?sleep,nap", class="img-card" alt="event picture">
         <% end %>
-       </div>
+      </div>
     <%# </div> %>
     <div class="card card-description card-description-left">
-    <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+      <% if policy(@event).book? %>
+        <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+      <% end %>
       <div class="card-body card-description-text-show">
         <h1 class="title-show"><%= @event.title %></h1>
         <p><span class="h5 font-weight-bold">Description: </span class="h5"></p><p><%= @event.description %></p>
