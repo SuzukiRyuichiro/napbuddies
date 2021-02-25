@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/events/:id/bookings/new', to: 'bookings#new', as: 'new_event_bookings'
   post '/events/:id/bookings', to: 'bookings#create', as: 'event_bookings'
   get '/dashboard', to: 'dashboards#show', as: 'dashboard'
-  put '/events/:id/bookings/:id', to: 'bookings#update', as: 'event_booking_update'
+  patch '/bookings/:id', to: 'bookings#update', as: 'booking'
 end
