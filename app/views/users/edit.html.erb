@@ -5,3 +5,5 @@
   <%= f.input :photo, as: :file %>
   <%= f.submit  %>
 <% end %>
+<%= link_to "change password", edit_user_registration_path(@user), class: "" %>
+<%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "" %>
