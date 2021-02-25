@@ -1,14 +1,77 @@
-<p>First Name: <%= @user.first_name %></p>
-<p>Last Name: <%= @user.last_name %></p>
-<p>Bio: <%= @user.bio %></p>
-<% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, width: 200, height: 200, crop: :fill, gravity: :face %>
-        <% else %>
-           <%= image_tag "napbaby.webp", alt: "nap baby", class: "avatar dropdown-toggle", style: "object-fit: cover" %>
-        <% end %>
-<% if @user == current_user %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-  <%#= link_to "Cancel", cancel_user_registration_path(@user) %>
-  <%= link_to "change password", edit_user_registration_path(@user) %>
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<% end %>
+<div class="container">
+  <div class="main-body">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body-profile">
+            <div class="d-flex flex-column align-items-center text-center">
+              <% if @user.photo.attached? %>
+                <%= cl_image_tag @user.photo.key, width: 200, height: 200, crop: :fill, gravity: :face, class: "rounded-profile" %>
+              <% else %>
+                <%= image_tag "napbaby.webp", alt: "nap baby", style: "object-fit: cover", class: "rounded-profile" %>
+              <% end %>
+              <div class="mt-3">
+                <h4> <%= @user.username %> </h4>
+                <% if @user == current_user %>
+                  <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary m-3" %>
+                <% else %>
+                  <%= link_to "Review", "#", class: "btn btn-primary m-3" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3 details-profile">
+          <div class="card-body-profile">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">First Name  </h6>
+              </div>
+              <div class="col-sm-9">
+                <%= @user.first_name %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Last Name</h6>
+              </div>
+              <div class="col-sm-9">
+                <%= @user.last_name %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9">
+                <%= @user.email %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9">
+                adress
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Bio</h6>
+              </div>
+              <div class="col-sm-9">
+                <%= @user.bio %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
