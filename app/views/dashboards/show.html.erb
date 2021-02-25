@@ -19,7 +19,7 @@
           <td scope="row"><%= index + 1 %></td>
           <td><%= event.title %></td>
           <td><%= event.location %></td>
-          <td><%= event.time %></td>
+          <td><%= event.time.strftime("%a %Y/%m/%d %H:%M") %></td>
           <td><%= event.bookings.count %></td>
         </tr>
         <tr class="hide-table-padding">
