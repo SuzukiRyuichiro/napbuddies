@@ -1,3 +1,14 @@
 <p>First Name: <%= @user.first_name %></p>
 <p>Last Name: <%= @user.last_name %></p>
 <p>Bio: <%= @user.bio %></p>
+<% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, width: 200, height: 200, crop: :fill, gravity: :face %>
+        <% else %>
+           <%= image_tag "napbaby.webp", alt: "nap baby", class: "avatar dropdown-toggle", style: "object-fit: cover" %>
+        <% end %>
+<% if @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+  <%#= link_to "Cancel", cancel_user_registration_path(@user) %>
+  <%= link_to "change password", edit_user_registration_path(@user) %>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<% end %>
