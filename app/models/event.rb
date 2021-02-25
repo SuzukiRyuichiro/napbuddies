@@ -11,10 +11,10 @@ class Event < ApplicationRecord
   validates :max_guest, presence: true
   validates :description, presence: true
   
-  enum host_spoon: { no_pref: 0, little: 1, mid: 2, big: 3 }
+  enum host_spoon: { "No preference" => 0, "Little Spoon" => 1, "Middle Spoon" => 2,  "Big Spoon" => 3 }
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
-    against: [ :title, :description ],
+    against: [ :title, :description, :host_spoon ],
     associated_against: {
       user: :username 
     },
