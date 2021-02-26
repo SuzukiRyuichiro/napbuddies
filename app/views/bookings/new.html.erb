@@ -3,7 +3,7 @@
   <%= simple_form_for([@event, @booking], url: event_bookings_path(@event)) do |f| %>
   <%= f.input :spoon,
   as: :radio_buttons,
-  collection: [['no preference', 'no_pref'], ['small spoon', 'little'], ['middle spoon', 'mid'], ['big spoon', 'big']],
+  collection: [['no preference', 'No preference'], ['small spoon', 'Little Spoon'], ['middle spoon', 'Middle Spoon'], ['big spoon', 'Big Spoon']],
   label: 'Preferred position',
   class: "radio-label" %>
   <div class="submit-button-wrap">

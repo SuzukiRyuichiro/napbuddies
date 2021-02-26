@@ -8,7 +8,8 @@ class ReviewsController < ApplicationController
   def create
     @user = User.find(params[:id])
     @review = Review.new(review_params)
-    @review.user = @user
+    @review.reviewee = @user
+    @review.reviewer = current_user
     authorize @review
     if @review.save
       redirect_to dashboard_path

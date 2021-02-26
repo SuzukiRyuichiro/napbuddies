@@ -1,7 +1,14 @@
-<h2>write a review for</h2>
-<%= @user.username %>
-<%= simple_form_for @review do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating %>
-    <%= f.submit %>
-<% end %>
+<div class="form-card">
+  <h2>write a review for <em><%= @user.username %></em></h2>
+  <%= simple_form_for @review do |f| %>
+  <%= f.input :content, label: 'Review' %>
+  <div class="star-rating">
+    <% 5.times do |i| %>
+    <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+    <% end %>
+  </div>
+  <div class="submit-button-wrap mt-5">
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>
