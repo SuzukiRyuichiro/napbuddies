@@ -37,8 +37,8 @@
               <td colspan="6">
                 <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
                   <div class="row">
-                    <div class="col-2">Username</div>
-                    <div class="col-6">Preferred Position</div>
+                    <div class="col-2 font-weight-bold">Username</div>
+                    <div class="col-6 font-weight-bold">Preferred Position</div>
                   </div>
                 </div>
                 <% event.bookings.each do |booking| %>
@@ -49,11 +49,11 @@
                     <% end %>
                     <div class="col-6"><%= booking.spoon %></div>
                     <% if booking.status == "pending" %>
-                    <%= simple_form_for booking do |f| %>
+                    <%= simple_form_for booking, remote: true do |f| %>
                     <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
                     <%= f.submit 'Accept', class: 'btn btn-primary mr-3' %>
                     <% end %>
-                    <%= simple_form_for booking do |f| %>
+                    <%= simple_form_for booking, remote: true do |f| %>
                     <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
                     <%= f.submit 'Decline', class: 'btn btn-danger' %>
                     <% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/:id/reviews/new', to: 'reviews#new', as: 'new_user_review'
+  post 'users/:id/reviews', to: 'reviews#create', as: 'reviews'
   devise_for :users
   root to: 'pages#home'
   get '/events/new', to: 'events#new', as: 'new_event'
@@ -12,3 +14,5 @@ Rails.application.routes.draw do
   patch '/bookings/:id', to: 'bookings#update', as: 'booking'
   resources :users, only: [:edit, :update]
 end
+
+

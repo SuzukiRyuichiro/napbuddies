@@ -15,7 +15,7 @@
                 <% if @user == current_user %>
                   <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary m-3" %>
                 <% else %>
-                  <%= link_to "Review", "#", class: "btn btn-primary m-3" %>
+                  <%= link_to "Review", new_user_review_path(@user), class: "btn btn-primary m-3" %>
                 <% end %>
               </div>
             </div>
