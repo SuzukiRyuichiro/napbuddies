@@ -11,7 +11,8 @@ class Booking < ApplicationRecord
   belongs_to :event
 
   enum status: { pending: 0, approved: 1, declined: 2 }
-  enum spoon: { no_pref: 0, little: 1, mid: 2, big: 3 }
+  enum host_spoon: { "No preference" => 0, "Little Spoon" => 1, "Middle Spoon" => 2,  "Big Spoon" => 3 }
+
 
   validates_with BookingValidator
 end
