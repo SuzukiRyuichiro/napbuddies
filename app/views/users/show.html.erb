@@ -75,3 +75,7 @@
     </div>
   </div>
 </div>
+<% @reviews_from_guests.each do |review| %>
+  <%= review.content %>
+  <%= review.rating %>
+<% end %>
