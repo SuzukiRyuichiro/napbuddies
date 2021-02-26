@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy ]
   def show
-    @reviews_from_guests = current_user.reviews_from_guests
+    @reviews_from_guests = @user.reviews_from_guests
     authorize @user
   end
   def edit

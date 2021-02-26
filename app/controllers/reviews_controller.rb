@@ -16,10 +16,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def show
-    @review = @user.review
-  end
-
   private
 
   def set_user
