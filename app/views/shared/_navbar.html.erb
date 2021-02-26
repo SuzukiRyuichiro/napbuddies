@@ -9,6 +9,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= link_to "New event", new_event_path, class: "btn btn-primary btn-sm mx-3" %>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
@@ -20,7 +21,6 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
             <%= link_to "Events", events_path, class: "dropdown-item" %>
-            <%= link_to "New event", new_event_path, class: "dropdown-item" %>
             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item"  %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
