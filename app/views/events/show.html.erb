@@ -1,30 +1,29 @@
-<%# <div class="d-flex flex-column align-items-center"> %>
-
-  <div class="container min-height-90vh">
-    <%# <div class="img-flex-show"> %>
-      <div class="card-description card-description-img">
-        <% if @event.photo.attached? %>
-        <%= cl_image_tag @event.photo.key, class: "img-card" %>
-        <% else %>
-        <img src="https://source.unsplash.com/1100x300/?sleep,nap", class="img-card" alt="event picture">
+<div class="container min-height-90vh">
+  <div class="card-description card-description-img">
+    <% if @event.photo.attached? %>
+      <%= cl_image_tag @event.photo.key, class: "img-card" %>
+    <% else %>
+      <img src="https://source.unsplash.com/1100x300/?sleep,nap", class="img-card" alt="event picture">
+    <% end %>
+  </div>
+  <div class="card card-description card-description-left">
+    <% if policy(@event).book? %>
+      <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
+    <% end %>
+    <div class="card-body card-description-text-show">
+      <h1 class="title-show"><%= @event.title %></h1>
+      <p><span class="h5 font-weight-bold">Description: </span class="h5"></p>
+      <p><%= @event.description %></p>
+      <p><span class="h5 font-weight-bold">Location: </span class="h5"></p>
+      <p> <%= @event.location %></p>
+      <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time.strftime("%A %Y/%m/%d %H:%M") %></p>
+      <p><span class="h5 font-weight-bold">Max guests: </span class="h5"><%= @event.max_guest %></p>
+      <p><span class="h5 font-weight-bold">Host: </span class="h5"><%= link_to profile_path(@user) do %>
+          <%= @user.username&.capitalize %>
         <% end %>
-      </div>
-    <%# </div> %>
-    <div class="card card-description card-description-left">
-      <% if policy(@event).book? %>
-        <%= link_to "Book this event ", new_event_bookings_path(@event), class: 'btn btn-success' %>
-      <% end %>
-      <div class="card-body card-description-text-show">
-        <h1 class="title-show"><%= @event.title %></h1>
-        <p><span class="h5 font-weight-bold">Description: </span class="h5"></p><p><%= @event.description %></p>
-        <p><span class="h5 font-weight-bold">Location: </span class="h5"></p><p> <%= @event.location %></p>
-        <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time.strftime("%A %Y/%m/%d %H:%M") %></p>
-        <p><span class="h5 font-weight-bold">Max guests: </span class="h5"><%= @event.max_guest %></p>
-        <p><span class="h5 font-weight-bold">Host: </span class="h5"><%= @user.username&.capitalize %></p>
         <p><span class="h5 font-weight-bold">Contact:</span class="h5"> <%= @user.email %> </p>
         <p><span class="h5 font-weight-bold">Preferred Position of the host: </span class="h5"><%= @event.host_spoon %> </p>
       </div>
     </div>
   </div>
 </div>
-<%# </div> %>
