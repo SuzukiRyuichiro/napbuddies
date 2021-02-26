@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row justify-content-around">
-    <div class="col-5">
+  <div class="row justify-content-around mx-3">
+    <div class="col-6">
       <div class='my-2'>
         <%= render 'shared/search_form', width: 75 %>
       </div>
@@ -12,7 +12,7 @@
       </div>
       <div class="col-5">
         <div id="map"
-          style="width: 110%; height: 100vh;"
+          style="width: 100%; height: 100vh;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
