@@ -6,10 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 20.times do
-  user = User.new(username: Faker::Twitter.screen_name, email:Faker::Internet.email, password: Faker::Creature::Animal.name,
+user = User.new(username: Faker::Twitter.screen_name, email:Faker::Internet.email, password: Faker::Creature::Animal.name,
 bio:Faker::TvShows::BojackHorseman.quote, first_name:Faker::Movies::LordOfTheRings.character, last_name:Faker::Creature::Animal.name)
-  user.save || next
+user.save || next
+end
+20.times do
+review = Review.new(content: Faker::TvShows::RickAndMorty.quote, rating: rand(3..5))
+review.reviewer = User.all.sample
+review.reviewee = User.all.sample
+review.save || next
 end
 
 puts "created #{User.count} users!"
