@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.reviewer = current_user
     authorize @review
     if @review.save
-      redirect_to dashboard_path
+      redirect_to profile_path(@user)
     else
       render 'new'
     end
