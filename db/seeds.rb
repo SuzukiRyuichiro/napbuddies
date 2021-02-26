@@ -38,23 +38,23 @@ end
 
 # Creating several events
 
-15.times do
-  puts "creating a event"
-  event = Event.new(
-    title: Faker::Book.title,
-    location: Faker::Address.state,
-    time: [rand(5.days).seconds.from_now, rand(5.days).seconds.ago].sample,
-    user: User.all.sample,
-    max_guest: rand(2..7),
-    description: Faker::Quote.yoda,
-    host_spoon: rand(0..3)
-    )
-  if event.save
-    puts "#{event.title} was created by #{event.user.username} @ #{event.location}"
-  else
-    next
-  end
-end
+# 15.times do
+#   puts "creating a event"
+#   event = Event.new(
+#     title: Faker::Book.title,
+#     location: Faker::Address.state,
+#     time: [rand(5.days).seconds.from_now, rand(5.days).seconds.ago].sample,
+#     user: User.all.sample,
+#     max_guest: rand(2..7),
+#     description: Faker::Quote.yoda,
+#     host_spoon: rand(0..3)
+#     )
+#   if event.save
+#     puts "#{event.title} was created by #{event.user.username} @ #{event.location}"
+#   else
+#     next
+#   end
+# end
 
 Event.all.each do |event|
   6.times do
