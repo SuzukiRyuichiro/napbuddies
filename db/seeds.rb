@@ -9,30 +9,43 @@
 
 20.times do
 user = User.new(username: Faker::Twitter.screen_name, email:Faker::Internet.email, password: "password",
-bio:Faker::TvShows::BojackHorseman.quote, first_name:Faker::Movies::LordOfTheRings.character, last_name:Faker::Creature::Animal.name)
+bio:Faker::TvShows::BojackHorseman.quote, first_name:Faker::Name.first_name, last_name:Faker::Name.last_name)
 user.save || next
 end
 
-20.times do
-review = Review.new(content: Faker::TvShows::RickAndMorty.quote, rating: rand(3..5))
+puts "created #{User.count} users!"
+
+the_reviews = [
+"This person was really friendly and I really enjoyed the nap",
+"He had such a good sense of humor and couldn't stop laughing!!",
+"I actully did not fully enjoy the experience",
+"We slept together and it was a good nap",
+"Good",
+"ok",
+"terrible person",
+"I would gladly sleep with this person again",
+"I hope I can sleep with this person again",
+"I would never want to sleep with this person again",
+"I regret booking a nappy with this person"]
+
+30.times do
+review = Review.new(content: the_reviews.sample, rating: rand(2..5))
 review.reviewer = User.all.sample
 review.reviewee = User.all.sample
 review.save || next
 puts "#{review.reviewer.username} wrote #{review.content} to #{review.reviewee.username}"
 end
 
-puts "created #{User.count} users!"
-
 # Creating several events
 
-10.times do
+15.times do
   puts "creating a event"
   event = Event.new(
     title: Faker::Book.title,
     location: Faker::Address.state,
-    time: rand(5.days).seconds.ago,
+    time: [rand(5.days).seconds.from_now, rand(5.days).seconds.ago].sample,
     user: User.all.sample,
-    max_guest: rand(2..3),
+    max_guest: rand(2..7),
     description: Faker::Quote.yoda,
     host_spoon: rand(0..3)
     )
@@ -44,7 +57,7 @@ puts "created #{User.count} users!"
 end
 
 Event.all.each do |event|
-  5.times do
+  6.times do
     booking = Booking.new(
       event: event,
       user: User.all.sample,
