@@ -45,7 +45,7 @@
                 <div id="collapse<%= index %>" class="collapse in p-2 border-bottom">
                   <div class="row">
                     <%= link_to profile_path(booking.user), class: "col-2" do %>
-                    <div class="col-2"><%= booking.user.username %></div>
+                    <div class="col-2" style="color: black"><%= booking.user.username %></div>
                     <% end %>
                     <div class="col-6"><%= booking.spoon %></div>
                     <% if booking.status == "pending" %>
