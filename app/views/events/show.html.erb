@@ -14,15 +14,14 @@
       <h1 class="title-show"><%= @event.title %></h1>
       <p><span class="h5 font-weight-bold">Description: </span class="h5"></p>
       <p><%= @event.description %></p>
-      <p><span class="h5 font-weight-bold">Location: </span class="h5"></p>
-      <p> <%= @event.location %></p>
-      <p> <span class="h5 font-weight-bold">Time: </span> <%= @event.time.strftime("%A %Y/%m/%d %H:%M") %></p>
-      <p><span class="h5 font-weight-bold">Max guests: </span class="h5"><%= @event.max_guest %></p>
-      <p><span class="h5 font-weight-bold">Host: </span class="h5"><%= link_to profile_path(@user) do %>
+      <p><i class="fas fa-map-marked-alt icon"></i> <%= @event.location %></p>
+      <p> <i class="far fa-calendar-alt icon"></i> <%= @event.time.strftime("%A %Y/%m/%d %H:%M") %></p>
+      <p><i class="fas fa-users icon"></i> <%= @event.max_guest %></p>
+      <p><i class="fas fa-id-badge icon"></i> <%= link_to profile_path(@user) do %>
           <%= @user.username&.capitalize %>
         <% end %>
-        <p><span class="h5 font-weight-bold">Contact:</span class="h5"> <%= @user.email %> </p>
-        <p><span class="h5 font-weight-bold">Preferred Position of the host: </span class="h5"><%= @event.host_spoon %> </p>
+        <p><i class="far fa-envelope icon"></i> <%= @user.email %> </p>
+        <p><i class="fas fa-utensil-spoon icon"></i><%= @event.host_spoon %> </p>
       </div>
     </div>
   </div>
