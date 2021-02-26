@@ -85,6 +85,11 @@
           </tr>
         </thead>
         <tbody>
+          <!-- if the event is over and declined, it should not show up in the booking -->
+          <!-- if the event is over and approved but havent reviewd, it should link a new review -->
+          <!-- if the event is over and approved and reviewd, should not show up in the booking -->
+          <!-- if the event is not over and approved should just show the booking with the status -->
+          <!-- if the event is not over and pending should just show the booking with the status -->
           <% @bookings.each_with_index do |booking, index| %>
           <tr>
             <td scope="row"><%= index + 1 %></td>
@@ -93,7 +98,11 @@
             <!-- <#% end %> -->
             <td><%= booking.event.location %></td>
             <td><%= booking.event.time.strftime("%a %Y/%m/%d %H:%M") %></td>
+            <% if booking.status == 'approved' && booking.event.time <= Time.now %>
+            <td><%= link_to "Write a review", new_user_review_path(booking.event.user) %></td>
+            <% else %>
             <td><%= booking.status %></td>
+            <% end %>
           </tr>
           <% end %>
         </tbody>
