@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #459D8C;
+  background: $light-gray;
   position: sticky;
   top: 0;
   width: 100%;
@@ -26,7 +26,7 @@
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   text-align: left;
-  animation: 
+  animation:
     typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
 }
