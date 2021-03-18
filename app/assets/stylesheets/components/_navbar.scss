@@ -19,7 +19,7 @@
 }
 
 #typewriter p {
-  color: #FE7768;
+  color: $dribble-green;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
